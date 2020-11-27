@@ -7,18 +7,40 @@ Home
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <img style="width: 100%" src="{% static 'images/Banner.jpg' %}" alt="">
+        <img style="width: 100%" src="{% static 'img/Banner.jpg' %}" alt="">
     </div>
 </div>
 <div class="py-4">
     <div class="container">
         <div class="row">
             <div class="text-center col-10 my-2 mx-auto">
-                <h1 class="text-capitalize text-white font-weight-bold">
+                <h1 class="text-capitalize text-white font-weight-bold" style="font-family:'Georgia'">
                     All Merchandise
                 </h1>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for i in '12345678' %}
+        <div class="col-9 mx-auto col-md-6 col-lg-3">
+            <div class="card mb-5" style="border-color: transparent;">
+                <div class="p-2">
+                <img src="{% static 'img/Toro.png' %}" class="card-img-top" alt="">
+                </div>
+                <div class="card-footer d-flex justify-content-between" style="background: #000000; border-color: transparent;">
+                    <p class=" font-weight-bold mb-0 text-white" style="font-family:'Georgia'">
+                        Toro Long Sleeve
+                    </p>
+                    <h5 class="text-info font-italic-mb-0 text-warning" style="font-family:'Georgia'">
+                        <span class="mr-1">$</span> 30
+                    </h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
