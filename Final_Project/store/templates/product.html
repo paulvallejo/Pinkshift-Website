@@ -7,10 +7,19 @@ Product
 {% block content %}
 <div class="container py-5">
     <div class="row mt-5">
-        <div class="col-10 mx-auto col-md-6 my-3">
+        <div class="col-10 mx-auto col-md-6 my-3" style="borderRadius:1000px">
+            <link rel="stylesheet" href="{% static 'css/roundedcorners.css' %}">
             <img src="{% static 'img/Toro.png' %}" alt="" style="width:500px;height:500px;">
+        </div>
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <div>
+                <h1 class="product_title text-white" style="font-family:'Georgia'">
+                    Toro Long Sleeve T-Shirt
+                </h1>
+            </div>
         </div>
     </div>
 </div>
 
 {% endblock %}
+document.getElementById("myDIV").style.borderRadius = "25px";
