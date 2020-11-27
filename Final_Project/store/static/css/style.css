@@ -1,0 +1,34 @@
+/* Footer */
+.footer {
+    height: 80px;
+    position: relative;
+}
+
+.footer .footer-content .socials .a {
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.footer .footer-content.socials.a:hover{
+    color: white;
+    transition: all .3s;
+}
+
+.footer .footer-bottom {
+    font-family:'Georgia';
+    height: 50px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    padding-top: 20px;
+}

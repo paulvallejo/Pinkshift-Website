@@ -1,5 +1,6 @@
-body {
+html, body {
     background-color: black;
+    min-height: 100%;
 }
 
 .product_title {
