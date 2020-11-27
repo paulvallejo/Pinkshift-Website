@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 Product
 {% endblock %}
 
 {% block content %}
-PINKSHIFT PINKSHIFT PINKSHIFT
+<div class="container py-5">
+    <div class="row mt-5">
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <img src="{% static 'img/Toro.png' %}" alt="" style="width:500px;height:500px;">
+        </div>
+    </div>
+</div>
+
 {% endblock %}
