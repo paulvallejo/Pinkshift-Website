@@ -5,25 +5,35 @@ Product
 {% endblock %}
 
 {% block content %}
+<!--<link rel="stylesheet" href="{% static 'css/base.css' %}">-->
 <div class="container py-5">
     <div class="row mt-5">
-        <div class="col-10 mx-auto col-md-6 my-3" style="borderRadius:1000px">
+        <div class="col-10 mx-auto col-md-6 my-3">
             <link rel="stylesheet" href="{% static 'css/roundedcorners.css' %}">
-            <img src="{% static 'img/Toro.png' %}" alt="" style="width:500px;height:500px;">
+            <img class="product_image" src="{% static 'img/Toro.png' %}" alt="" style="width:500px;height:500px;">
         </div>
         <div class="col-10 mx-auto col-md-6 my-3">
             <div>
-                <h1 class="product_title text-white" style="font-family:'Georgia'">
+                <h1 class="text-white" style="font-size:22px;text-transform:uppercase;letter-spacing:.2em;
+                padding-top:15px;padding-bottom:10px;font-family:'Georgia'">
                     Toro Long Sleeve T-Shirt
                 </h1>
-                <p class="text-warning" style="font-family:'Georgia'">$300</p>
-                <p class="product_description font-weight-bold text-white" style="font-family:'Georgia'">
+                <h5 class="text-info font-italic-mb-0 text-warning mb-3" style="font-family:'Georgia'">
+                    <span class="mr-1">$</span> 30
+                </h5>
+                <p class="text-white" style="font-size:16px;text-transform:uppercase;
+                letter-spacing:.2em;font-family:'Georgia'">
                     Product Description
                 </p>
-                <p class="text-justify product_text text-white" style="font-family:'Georgia'">
-                    PINKSHIFT PINKSHIFT PINKSHIFT
+                <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">
+                    Screen printed on super soft Bella + Canvas 3501 shirts. Toro design on the front with roses on
+                    both sleeves.
                 </p>
-                <p class="text-justify product_text font-weight-bold text-white" style="font-family:'Georgia'">
+                <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">
+                    Artwork: Grace Ren (gracerenart.com)
+                    <br>Printed by Old Eastern Ink Shop
+                </p>
+                <p class="text-justify font-weight-bold text-white" style="padding-right:20px;font-family:'Georgia'">
                     <b>Out of Stock</b>
                 </p>
             </div>
