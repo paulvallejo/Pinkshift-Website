@@ -24,18 +24,19 @@ Home
 
 <div class="container">
     <div class="row">
-        {% for i in '12345678' %}
+        <!-- Loops through all products in home method -->
+        {% for product in products %}
         <div class="col-9 mx-auto col-md-6 col-lg-3">
             <div class="card mb-5" style="border-color: transparent;">
                 <div class="p-2">
-                <img src="{% static 'img/Toro.png' %}" class="card-img-top" alt="">
+                <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
                 </div>
                 <div class="card-footer d-flex justify-content-between" style="background: #000000; border-color: transparent;">
                     <p class=" font-weight-bold mb-0 text-white" style="font-family:'Georgia'">
-                        Toro Long Sleeve
+                        {{product.name}}
                     </p>
                     <h5 class="text-info font-italic-mb-0 text-warning" style="font-family:'Georgia'">
-                        <span class="mr-1">$</span> 30
+                        <span class="mr-1">$</span> {{product.price}}
                     </h5>
                 </div>
             </div>
