@@ -5,79 +5,100 @@ Cart
 {% endblock %}
 
 {% block content %}
-<div class="text-center">
-    <br>
-    <div class="text-center text-white font-weight-bold product_title" style="font-size:22px;text-transform:uppercase;
-                letter-spacing:.2em;padding-top:15px;padding-bottom:10px;font-family:'Georgia'">
-        My Cart
+    {% if not cart_items %}
+    <div>
+        <br>
+        <h1 class="text-center text-white product_title" style="font-size:22px;text-transform:uppercase;
+                    letter-spacing:.2em;padding-top:15px;padding-bottom:10px;font-family:'Georgia'">
+            Your cart is empty
+        </h1>
+        <br>
+        <p class="text-center text-white" style="font-family:'Georgia'">
+            Please click <a href="{% url 'home' %}">here</a> to continue shopping
+        </p>
     </div>
-</div>
-<div class="row mx-auto">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-        <table class="table cart_table">
-            <thead class="cart_thead bg-dark">
-                <tr>
-                    <th class="text-white" colspan="4" style="font-family:'Georgia'">
-                        Your items
-                    </th>
-                </tr>
-            </thead>
-            {% for i in '123' %}
-                <tr>
-                    <td>
-                        <a href="">
-                            <img src="{% static 'img/Toro.png' %}" height="100" width="100" alt="">
-                        </a>
-                    </td>
-                    <td class="text-left text-white" style="font-family:'Georgia'">
-                        Toro Shirt
-                        <br>
-                        SKU: 5
-                        <br>
-                        Unit Price: $30
-                        <br>
-                        QTY: 2 x $30
-                    </td>
-                    <td class="text-left text-white" style="font-family:'Georgia'">
-                        $60
-                    </td>
-                    <td>
-                        &nbsp<a href=""><i class="fas fa-plus-circle"></i></a>
-                        &nbsp<a href=""><i class="fas fa-minus-circle"></i></a>
-                        &nbsp<a href=""><i class="fas fa-trash-alt cart_icon"></i></a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-        <table class="table cart_table">
-            <thead class="cart_thead bg-dark">
-                <tr>
-                    <th class="text-white" colspan="4" style="font-family:'Georgia'">
-                        Check out
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-white" style="font-family:'Georgia'">
-                        Please review your cart items before payment.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-left text-white" style="font-family:'Georgia'">
-                        Your total is: <strong>$180</strong>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="mx-auto">
-            <a href="" style="text-decoration: none;">
-                <button type="button" class="btn btn-lg btn-block bg-warning text-white" style="font-family:'Georgia'">
-                    Continue Shopping
-                </button>
-            </a>
+    {% else %}
+    <div class="text-center">
+        <br>
+        <div class="text-center text-white font-weight-bold product_title" style="font-size:22px;text-transform:uppercase;
+                    letter-spacing:.2em;padding-top:15px;padding-bottom:10px;font-family:'Georgia'">
+            My Cart
         </div>
-</div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table cart_table">
+                <thead class="cart_thead bg-dark">
+                    <tr>
+                        <th class="text-white" colspan="4" style="font-family:'Georgia'">
+                            Your items
+                        </th>
+                    </tr>
+                </thead>
+                {% for cart_item in cart_items %}
+                    <tr>
+                        <td>
+                            <a href="cart_item.product.get_url">
+                                <img src="{{cart_item.product.image.url}}" height="100" width="100" alt="">
+                            </a>
+                        </td>
+                        <td class="text-left text-white" style="font-family:'Georgia'">
+                            {{cart_item.product.name}}
+                            <br>
+                            SKU: {{cart_item.product.id}}
+                            <br>
+                            Unit Price: ${{cart_item.product.price}}
+                            <br>
+                            QTY: {{cart_item.quantity}} x ${{cart_item.product.price}}
+                        </td>
+                        <td class="text-left text-white" style="font-family:'Georgia'">
+                            ${{cart_item.sub_total}}
+                        </td>
+                        {% if cart_item.quantity < cart_item.product.stock %}
+                        <td>
+                            &nbsp<a href="{% url 'add_cart' cart_item.product.id %}"><i class="fas fa-plus-circle"></i></a>
+                            &nbsp<a href=""><i class="fas fa-minus-circle"></i></a>
+                            &nbsp<a href=""><i class="fas fa-trash-alt cart_icon"></i></a>
+                        </td>
+                        {% else %}
+                        <td>
+                            &nbsp<a href=""><i class="fas fa-minus-circle"></i></a>
+                            &nbsp<a href=""><i class="fas fa-trash-alt cart_icon"></i></a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table cart_table">
+                <thead class="cart_thead bg-dark">
+                    <tr>
+                        <th class="text-white" colspan="4" style="font-family:'Georgia'">
+                            Check out
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-white" style="font-family:'Georgia'">
+                            Please review your cart items before payment.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left text-white" style="font-family:'Georgia'">
+                            Your total is: <strong>${{total}}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mx-auto">
+                <a href="{% url 'home' %}" style="text-decoration: none;">
+                    <button type="button" class="btn btn-lg btn-block bg-warning text-white" style="font-family:'Georgia'">
+                        Continue Shopping
+                    </button>
+                </a>
+            </div>
+    </div>
+    {% endif %}
 {% endblock %}

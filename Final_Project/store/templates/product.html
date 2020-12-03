@@ -28,16 +28,16 @@ Product
                 <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">
                     {{product.description}}
                 </p>
-<!--                <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">-->
-<!--                    Artwork: Grace Ren (gracerenart.com)-->
-<!--                    <br>Printed by Old Eastern Ink Shop-->
-<!--                </p>-->
                 {% if product.stock <= 0 %}
                 <p class="text-justify font-weight-bold text-white" style="padding-right:20px;font-family:'Georgia'">
                     <b>Out of Stock</b>
                 </p>
                 {% else %}
-                <a class="text-justify font-weight-bold" style="font-family:'Georgia'" href="">Add to Cart</a>
+                <a class="text-justify font-weight-bold" style="font-family:'Georgia'" href="{% url 'add_cart' product.id %}">
+                    <button type="button" name="button" class="btn btn-secondary">
+                        Add to Cart
+                    </button>
+                </a>
                 {% endif %}
             </div>
         </div>
