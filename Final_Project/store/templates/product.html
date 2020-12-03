@@ -10,32 +10,35 @@ Product
     <div class="row mt-5">
         <div class="col-10 mx-auto col-md-6 my-3">
             <link rel="stylesheet" href="{% static 'css/roundedcorners.css' %}">
-            <img class="product_image" src="{% static 'img/Toro.png' %}" alt="" style="width:500px;height:500px;">
+            <img class="product_image" src="{{product.image.url}}" alt="" style="width:500px;height:500px;">
         </div>
         <div class="col-10 mx-auto col-md-6 my-3">
             <div>
                 <h1 class="text-white" style="font-size:22px;text-transform:uppercase;letter-spacing:.2em;
                 padding-top:15px;padding-bottom:10px;font-family:'Georgia'">
-                    Toro Long Sleeve T-Shirt
+                    {{product.name}}
                 </h1>
                 <h5 class="text-info font-italic-mb-0 text-warning mb-4" style="font-family:'Georgia'">
-                    <span class="mr-1">$</span> 30
+                    <span class="mr-1">$</span> {{product.price}}
                 </h5>
                 <p class="text-white" style="font-size:16px;text-transform:uppercase;
                 letter-spacing:.2em;font-family:'Georgia'">
                     Product Description
                 </p>
                 <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">
-                    Screen printed on super soft Bella + Canvas 3501 shirts. Toro design on the front with roses on
-                    both sleeves.
+                    {{product.description}}
                 </p>
-                <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">
-                    Artwork: Grace Ren (gracerenart.com)
-                    <br>Printed by Old Eastern Ink Shop
-                </p>
+<!--                <p class="text-justify text-white" style="padding-right:20px;font-family:'Georgia'">-->
+<!--                    Artwork: Grace Ren (gracerenart.com)-->
+<!--                    <br>Printed by Old Eastern Ink Shop-->
+<!--                </p>-->
+                {% if product.stock <= 0 %}
                 <p class="text-justify font-weight-bold text-white" style="padding-right:20px;font-family:'Georgia'">
                     <b>Out of Stock</b>
                 </p>
+                {% else %}
+                <a class="text-justify font-weight-bold" style="font-family:'Georgia'" href="">Add to Cart</a>
+                {% endif %}
             </div>
         </div>
     </div>

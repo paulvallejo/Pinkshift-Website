@@ -51,5 +51,11 @@ class Product(models.Model):
         verbose_name = 'product'
         verbose_name_plural = 'products'
 
+    def get_url(self):
+        """
+        A function that accesses each product by their category URL by using Django's reverse function
+        """
+        return reverse('product_detail', args=[self.category.slug, self.slug])
+
     def __str__(self):
         return self.name

@@ -27,7 +27,7 @@ def home(request, category_slug=None):
     return render(request, 'home.html', {'category': category_page, 'products': products})
 
 
-def productPage(request):
+def productPage(request, category_slug, product_slug):
     """
     This function combines a given template with a response object of certain rendered text.
 
@@ -38,5 +38,9 @@ def productPage(request):
     **Return**
         Combination of the request object and template
     """
-    return render(request, 'product.html')
+    try:
+        product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+    except Exception as e:
+        raise e
+    return render(request, 'product.html', {'product': product})
 # Create your views here.
