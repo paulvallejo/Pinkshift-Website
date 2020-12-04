@@ -13,3 +13,16 @@
     text-decoration: none;
     color: crimson !important;
 }
+
+.stripe-button-el {
+    width: 100% !important;
+    display: block !important;
+    background-color: #868e96 !important;
+    margin-bottom: 5px;
+}
+
+.stripe-button-el span {
+    height: 36px !important;
+    font-family:'Georgia', serif !important;
+    font-size: 16px !important;
+}

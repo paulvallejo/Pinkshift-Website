@@ -159,7 +159,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
 
                     # Print some kind of confirmation message when an order is created
                     print('Order created')
-                return redirect('category/apparel')  # Home page doesn't work yet
+                return redirect('thanks_page', order_details.id)  # Home page doesn't work yet
             except ObjectDoesNotExist:
                 pass
 
@@ -194,3 +194,13 @@ def cart_remove_product(request, product_id):
     cart_item = CartItem.objects.get(product=product, cart=cart)
     cart_item.delete()
     return redirect('cart_detail')
+
+
+def thanks_page(request, order_id):
+    """
+    This function takes in an order_id as an argument and uses it to find a specific order id and then returns
+    an HTML template that says "thanks for your order"
+    """
+    if order_id:
+        customer_order = get_object_or_404(Order, id=order_id)
+    return render(request, 'thankyou.html', {'customer_order': customer_order})

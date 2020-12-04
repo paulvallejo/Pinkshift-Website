@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Pinkshift Webstore
+{% endblock %}
+
+{% block content %}
+    <div class="text-center text-white" style="font-family:'Georgia'">
+        <br>
+        <br>
+        <h1 class="text-center text-white" style="font-family:'Georgia'">
+            Thank you for ordering!
+        </h1>
+        <br>
+        <br>
+        <p>Your order number is: <b>{{ customer_order.id }}</b></p>
+        <br>
+        <p>
+            We've received your order and will begin processing or packing right away!
+        </p>
+    </div>
+{% endblock %}
