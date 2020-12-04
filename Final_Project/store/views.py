@@ -31,15 +31,37 @@ def home(request, category_slug=None):
         products = Product.objects.filter(category=category_page, available=True)
     else:
         # If there isn't a category slug, all products from home page will be displayed
-        products = Product.objects.all().filter(availlable=True)
+        products = Product.objects.all().filter(available=True)
     return render(request, 'home.html', {'category': category_page, 'products': products})
 
 
 def aboutPage(request):
+    """
+       This function combines a given template with a response object of certain rendered text for the
+       about page.
+
+       **Parameters**
+           request:
+               A template
+
+       **Return**
+           Combination of the request object and template
+       """
     return render(request, 'about.html')
 
 
 def tourPage(request):
+    """
+       This function combines a given template with a response object of certain rendered text for the page
+       that lists future show dates.
+
+       **Parameters**
+           request:
+               A template
+
+       **Return**
+           Combination of the request object and template
+       """
     return render(request, 'tour.html')
 
 
@@ -214,3 +236,11 @@ def thanks_page(request, order_id):
     if order_id:
         customer_order = get_object_or_404(Order, id=order_id)
     return render(request, 'thankyou.html', {'customer_order': customer_order})
+
+
+def search(request):
+    """
+    This function adds functionality to the search bar by directing the input text to the proper url
+    """
+    products = Product.objects.filter(name__contains=request.GET['title'])
+    return render(request, 'home.html', {'products': products})

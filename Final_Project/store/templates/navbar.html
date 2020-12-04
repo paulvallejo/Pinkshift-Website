@@ -8,9 +8,11 @@
             <li class="nav-item dropdown"><a class="nav-link text-light font-weight-bold px-3 dropdown-toggle"
                                              style="font-family:'Georgia'" href="" data-toggle="dropdown">store</a>
                 <div class="dropdown-menu bg-dark">
-                    <a class="dropdown-item text-light font-weight-bold" style="font-family:'Georgia';font-style:italic" href="{% url 'home' %}">all merch</a>
+                    <a class="dropdown-item text-light font-weight-bold" style="font-family:'Georgia';font-style:italic"
+                       href="{% url 'home' %}">all merch</a>
                     {% for category in links %}
-                    <a class="dropdown-item text-light" style="font-family:'Georgia';font-style:italic" href="{{category.get_url}}">{{category.name}}</a>
+                    <a class="dropdown-item text-light" style="font-family:'Georgia';font-style:italic"
+                       href="{{category.get_url}}">{{category.name}}</a>
                     {% endfor %}
 
                 </div>
@@ -27,11 +29,11 @@
             </li>
         </ul>
 
-        <form class="form-inline ml-3">
+        <form class="form-inline ml-3" action="{% url 'search' %}", method="GET">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" name="title" class="form-control" placeholder="Search">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-warning" name="button"><i class="fas fa-search"></i></button>
+                    <button type="submit" class="btn btn-warning" name="button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </form>
