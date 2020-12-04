@@ -93,7 +93,7 @@ Cart
                 </tbody>
             </table>
             <div class="mx-auto">
-                <form class="" action="" method="">
+                <form class="" action="" method="POST">
                     {% csrf_token %}
                     <script src="https://checkout.stripe.com/checkout.js"
                     class="stripe-button"
@@ -103,9 +103,9 @@ Cart
                     data-description="{{ description }}"
                     data-locale="auto"
                     data-currency="usd"
-                    data-shipping-address="true"
-                    data-billing-address="true"
-                    data-zip-code="true">
+                    data-shipping-address="True"
+                    data-billing-address="True"
+                    data-zip-code="True">
                     </script>
                 </form>
                 <a href="{% url 'home' %}" style="text-decoration: none;">
