@@ -4,7 +4,9 @@ from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
 
-
+"""
+In this file, we determine what content is displayed on a given page.
+"""
 # Create your views here.
 
 
@@ -31,6 +33,14 @@ def home(request, category_slug=None):
         # If there isn't a category slug, all products from home page will be displayed
         products = Product.objects.all().filter(availlable=True)
     return render(request, 'home.html', {'category': category_page, 'products': products})
+
+
+def aboutPage(request):
+    return render(request, 'about.html')
+
+
+def tourPage(request):
+    return render(request, 'tour.html')
 
 
 def productPage(request, category_slug, product_slug):

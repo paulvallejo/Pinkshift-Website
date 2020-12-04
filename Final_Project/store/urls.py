@@ -1,8 +1,15 @@
 from django.urls import path
 from . import views
 
+"""
+In this file, we map all of the store's URLs. We import "path" form django to power our URL pattern and import views
+to use the functions created in views.py.
+"""
+
 urlpatterns = [
     path('', views.home, name='home'),
+    path('about/', views.aboutPage, name='about'),
+    path('tour/', views.tourPage, name='tour'),
     path('category/<slug:category_slug>', views.home, name='products_by_category'),
     path('category/<slug:category_slug>/<slug:product_slug>', views.productPage, name='product_detail'),
     path('cart/add/<int:product_id>', views.add_cart, name='add_cart'),
