@@ -68,7 +68,7 @@ On the bottom of the left-hand side of the Stripe dashboard, there should be an 
 STRIPE_PUBLISHABLE_KEY = 'your publishable API key'
 STRIPE_SECRET_KEY = 'your secret API key'
 ```
-All you need to do is simply copy and paste your keys into the corresponding variable and you will be able to begin making test purchases, and they should appear on your stripe dashboard.
+All you need to do is simply copy and paste your keys into the corresponding variable and you will be able to begin making test purchases, and they should appear on your stripe dashboard. You can make test purchases using the card numbers and data at this link: https://stripe.com/docs/testing
 
 Once you're done testing and ready to go live, deactivate the "Viewing test data" slider and you should go back to where you found your test API keys. The API keys should have changed. These are your live API keys that should be implemented in your code when you're ready to run your store.
     
@@ -79,6 +79,40 @@ https://getbootstrap.com/docs/4.5/getting-started/introduction/
 The second important template is the checkout template that I integrated into the cart.html file. It is found at: https://stripe.com/docs/payments/checkout/migration
 
 If you decide to create another app or start a new project, Django will create very base level views.py, manage.py, models.py, etc., files in order to begin routing your URL paths.
+
+I've collected a lot of random but useful resources in building this website. It could be of use when editing the website to your likinf.==g.
+| HTML/CSS Resource Topic | Link |
+| --- | --- |
+| When to use ‘block title’ and ‘endblock’ in Django | https://stackoverflow.com/questions/53383602/what-is-block-content-and-endblock-content-for-in-django |
+| Using django models | https://docs.djangoproject.com/en/3.1/topics/db/models/ |
+| Make a django admin username/password | https://docs.djangoproject.com/en/3.1/ref/contrib/admin/ |
+| The render() function used | https://docs.djangoproject.com/en/3.1/topics/http/shortcuts/ |
+| Creating a simple website using Django | https://www.youtube.com/watch?v=ZsJRXS_vrw0 |
+| Creating categories and product models | https://djangopy.org/how-to/how-to-implement-categories-in-django/ |
+| Using reverse function from Django urls | https://stackoverflow.com/questions/11241668/what-is-reverse-in-django |
+| Django admin tabular inline function | https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site |
+
+
+| HTML/CSS Resource Topic | Link |
+| --- | --- |
+| Commenting out lines | https://www.bitdegree.org/learn/html-comment-tag |
+| Implementing navbar in Bootstrap | https://getbootstrap.com/docs/4.0/components/navbar/ |
+| How to use basic icons | https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use |
+| Customizing navbar in Bootstrap | https://www.geeksforgeeks.org/how-to-change-navigation-bar-color-in-bootstrap/ & https://getbootstrap.com/docs/4.3/components/navbar/ |
+| How to create/edit button tags | https://www.w3schools.com/tags/tag_button.asp |
+| Intro to HTML and CSS | https://www.youtube.com/watch?v=UB1O30fR-EE & https://www.youtube.com/watch?v=yfoY53QXEnI |
+| Background color for website | https://www.w3schools.com/css/css_background.asp |
+| Building a product page | https://designmodo.com/create-product-page/ |
+| Making a footer that includes socials | https://www.sitepoint.com/community/t/html-codes-for-navigation-links-at-bottom-of-page/3716 |
+| HTML <a> tag | https://www.w3schools.com/tags/tag_a.asp |
+| Bootstrap grid system | https://getbootstrap.com/docs/4.3/layout/grid/ |
+| Bootstrap card class for displaying products | https://getbootstrap.com/docs/4.0/components/card/ |
+| Adjusting card borders in CSS | https://stackoverflow.com/questions/9125113/border-colors-transparent-property |
+| HTML template tags | https://www.w3schools.com/tags/tag_template.asp |
+| Adjusting image size | https://www.w3schools.com/html/html_images.asp |
+| Creating a useful footer | https://www.youtube.com/watch?v=o-cKmAeNJiA |
+
+
 
 # Final Notes
 This website is a very first draft and there are some things I definitely will continue to work on even after this course is completed! For time's sake, I wasn't able to create the "about", "media", and "tour" pages. These pages will mainly be HTML code with proper design efforts and hyperlinks to other Pinkshift-related URLs (socials, music streaming services, etc.)
