@@ -24,6 +24,7 @@ def menu_links(request):
     """
     A function that returns all categories from the database and names it "links" so that we can use it in the
     home page
+
     *Parameters*
     request:
         An http response object

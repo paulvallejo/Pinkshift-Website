@@ -5,6 +5,9 @@ from .models import Category, Product, Order, OrderItem
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    This class creates a way for the admin interface to view categories in a more organized way.
+    """
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
@@ -13,6 +16,9 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    This class creates a way for the admin interface to view products in a more organized way.
+    """
     list_display = ['name', 'price', 'stock', 'available', 'created', 'updated']
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}
@@ -23,6 +29,9 @@ admin.site.register(Product, ProductAdmin)
 
 
 class OrderItemAdmin(admin.TabularInline):
+    """
+    This class creates a way for the admin interface to view order items in a more organized way.
+    """
     model = OrderItem
     fieldsets = [
         ('Product', {'fields': ['product'], }),
@@ -36,6 +45,9 @@ class OrderItemAdmin(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    """
+    This class creates a way for the admin interface to view orders in a more organized way.
+    """
     list_display = ['id', 'billingName', 'emailAddress', 'created']
     list_display_links = ('id', 'billingName')
     search_fields = ['id', 'billingName', 'emailAddress']

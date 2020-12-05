@@ -65,6 +65,21 @@ def tourPage(request):
     return render(request, 'tour.html')
 
 
+def mediaPage(request):
+    """
+       This function combines a given template with a response object of certain rendered text for the page that
+       will contain links to streaming services.
+
+       **Parameters**
+           request:
+               A template
+
+       **Return**
+           Combination of the request object and template
+       """
+    return render(request, 'media.html')
+
+
 def productPage(request, category_slug, product_slug):
     """
     This function combines a given template with a response object of certain rendered text.
@@ -89,25 +104,30 @@ def _cart_id(request):
     """
     cart = request.session.session_key
     if not cart:
-        cart = request.session.create()
+        cart = request.session.create()  # This creates a new cart "session" if you don't have any items in your cart
     return cart
 
 
 def add_cart(request, product_id):
+    """
+    This function calls of the information of a cart the user made and adds/concatenates a new cart item. If there
+    isn't a cart made (it's the first time a user enters the site), the function creates a new cart session and
+    saves it until the user checks out/pays.
+    """
     product = Product.objects.get(id=product_id)
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
-    except Cart.DoesNotExist:
+    except Cart.DoesNotExist:  # If there is no cart, we create a new one
         cart = Cart.objects.create(
             cart_id=_cart_id(request)
         )
         cart.save()
-    try:
+    try:  # Here we attempt to get cart item information
         cart_item = CartItem.objects.get(product=product, cart=cart)
         if cart_item.quantity < cart_item.product.stock:
             cart_item.quantity += 1
         cart_item.save()
-    except CartItem.DoesNotExist:
+    except CartItem.DoesNotExist:  # If the cart item doesn't exist, we create a new one for the session
         cart_item = CartItem.objects.create(
             product=product,
             quantity=1,
@@ -118,7 +138,12 @@ def add_cart(request, product_id):
 
 
 def cart_detail(request, total=0, counter=0, cart_items=None):
-    try:
+    """
+    This function retrieves all cart items from the current session. It then calculates the total price of all of
+    items in the cart. The total input is the price of all items in the cart and the counter variable is the number
+    of items in the cart.
+    """
+    try:  # First thing is we attempt to get cart information if it's already created
         cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, active=True)
         for cart_item in cart_items:
@@ -219,7 +244,7 @@ def cart_remove(request, product_id):
 
 def cart_remove_product(request, product_id):
     """
-    This function allows the user to decrease the quantity of a product at check out.
+    This function allows the user to completely remove a product from their cart.
     """
     cart = Cart.objects.get(cart_id=_cart_id(request))
     product = get_object_or_404(Product, id=product_id)

@@ -9,6 +9,7 @@ to use the functions created in views.py.
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.aboutPage, name='about'),
+    path('media/', views.mediaPage, name='media'),
     path('tour/', views.tourPage, name='tour'),
     path('category/<slug:category_slug>', views.home, name='products_by_category'),
     path('category/<slug:category_slug>/<slug:product_slug>', views.productPage, name='product_detail'),
