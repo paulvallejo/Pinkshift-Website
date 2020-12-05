@@ -30,8 +30,13 @@ You can add this new page as a tab in your header. In the navbar.html file, you 
 Where the href name is the name you gave it in urls.py and the tab_name is just whatever text you want to have in the navbar. The above line of code continues the same example from the previous subsection.
 
 #### Using FontAwesome icons to customize your website
-If you wish to replace the buttons I used on my website, or remove them entirely, you must go to the html pages where they're implented. For example, the header/navbar has two icons: a yellow disk that serves as a home button, and a magnifying glass that serves as search button.
+If you wish to replace the buttons I used on my website, or remove them entirely, you must go to the html pages where they're implented. For example, the header/navbar has two icons: a yellow disk that serves as a home button, and a magnifying glass that serves as search button. 
 
+The first step in using FontAwesome icons is to go to https://fontawesome.com and search for icons you want to use! I have already implemented the kit link in the ```base.html``` file so all you have to do is select an icon, copy its HTML code and paste it into whatever html file you're working on. To replace the yellow disk, for example, go to the ```navbar.html``` file and look for the first ```<i>``` tag that looks something like this:
+
+```<i class="fas fa-compact-disc text-warning fa-2x"></i>```
+
+Replace with the FontAwesome code and refresh the webpage!
 
 ## Become an Adminstrator
 In order to start uploading your products and all that fun stuff, you must become a a django adminstrator. When your local server isn't running, you can register to become a website admin by using the command: ```python manage.py createsuperuser```
